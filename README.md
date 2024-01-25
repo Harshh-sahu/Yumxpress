@@ -3,7 +3,7 @@
 
              firstly you have to download oracle 11g express edition an after that you have to connect the system database.
  
-              copy and paste These Query:-   https://drive.google.com/file/d/1klrE1jcBltElrPTIsses_Sbsnf8FMaKd/view?usp=sharing
+             Database Download Link-   https://drive.google.com/file/d/1klrE1jcBltElrPTIsses_Sbsnf8FMaKd/view?usp=sharing
 
 
    Netbeans 8 = https://drive.google.com/file/d/13UsHYZBT29ZqMMwBoAbIiySluSE3fVBT/view?usp=drivesdk
