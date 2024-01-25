@@ -1,0 +1,142 @@
+ ___________________________________________________________*YUMXPRESS*______________________________________________________________
+
+
+             firstly you have to download oracle 11g express edition an after that you have to connect the system database.
+ 
+              copy and paste These Query:-   https://drive.google.com/file/d/1klrE1jcBltElrPTIsses_Sbsnf8FMaKd/view?usp=sharing
+
+
+   Netbeans 8 = https://drive.google.com/file/d/13UsHYZBT29ZqMMwBoAbIiySluSE3fVBT/view?usp=drivesdk
+
+   java 8 = https://drive.google.com/file/d/1X1TAJHEBV3REz2paMw7-1r8tklPNyG4K/view?usp=sharing
+
+
+
+           
+==========================================================================================================================================
+==========================================================================================================================================
+
+PRODUCT KEY :- For getting an product key You have to firstly login your gmail( making for project) and goto the >>> Manage your google account >>> security >>> Two Factor AUthentication >>> it ask for verify you >> now scroll down You can see >> app password >>> click on that and fill the box >>> and generate >>> copy that 16 digit and paste it to the required box.
+
+==========================================================================================================================================
+==========================================================================================================================================
+              
+
+
+
+
+ step 1>>
+                                      create user yumxpress identified by foodie;
+
+==========================================================================================================================================
+==========================================================================================================================================
+
+
+
+ step 2>>
+
+
+                                        grant resource,connect to yumxpress;
+
+==========================================================================================================================================
+==========================================================================================================================================
+
+
+
+ step 3>> 
+
+                                       connect yumxpress/foodie;
+
+
+==========================================================================================================================================
+==========================================================================================================================================
+ 
+ step 4>> 
+
+ 
+              CREATE TABLE COMPANIES (
+	      COMPANY_ID VARCHAR2(10) CONSTRAINT COMPANIES_PK PRIMARY KEY,
+	      COMPANY_NAME VARCHAR2(100) CONSTRAINT CMP_UNQ_NAME UNIQUE,
+	      OWNER_NAME VARCHAR2(50),
+	      PASSWORD VARCHAR2(20),
+	      STATUS VARCHAR2(50),
+	      EMAIL_ID VARCHAR2(100) CONSTRAINT CMP_UNQ_EM_ID UNIQUE,
+	      SECURITY_KEY VARCHAR2(100)	
+             );
+      
+==========================================================================================================================================
+==========================================================================================================================================
+
+
+
+
+ step 5>> 
+
+
+
+
+
+       CREATE TABLE PRODUCTS (
+	       PRODUCT_ID VARCHAR2(10) CONSTRAINT PRODUCTS_PK PRIMARY KEY,
+	       COMPANY_ID VARCHAR2(10) CONSTRAINT PD_FK_CMP_ID REFERENCES COMPANIES(COMPANY_ID),
+	       PRODUCT_NAME VARCHAR2(50),
+	       PRODUCT_PRICE NUMBER(7,2),
+	       PRODUCT_IMAGE BLOB
+                 );
+
+=========================================================================================================================================
+==========================================================================================================================================
+ step 6 >>
+
+
+
+
+               CREATE TABLE STAFF ( 
+              STAFF_ID VARCHAR2(10) CONSTRAINT STAFFS_PK PRIMARY KEY,  
+              COMPANY_ID VARCHAR2(30) CONSTRAINT STF_FK_CMP_ID REFERENCES COMPANIES(COMPANY_ID),  
+              EMAIL_ID VARCHAR2(30) CONSTRAINT STF_NN_EMID NOT NULL, 
+              PASSWORD VARCHAR2(30) CONSTRAINT STF_NN_PWD NOT NULL, 
+              STAFF_NAME VARCHAR2(50) 
+               );
+
+
+==========================================================================================================================================
+==========================================================================================================================================
+
+
+  step 7 >>> 
+
+
+
+
+                 CREATE TABLE CUSTOMERS (
+	        CUSTOMER_ID VARCHAR2(10) CONSTRAINT CUSTOMERS_PK PRIMARY KEY,
+                CUSTOMER_NAME VARCHAR2(50),
+	        EMAIL_ID VARCHAR2(30) CONSTRAINT CUSTOMERS_EM_NN NOT NULL,
+                PASSWORD VARCHAR2(20),
+                MOBILE_NO VARCHAR2(10),
+ 	        ADDRESS VARCHAR2(150));
+
+==========================================================================================================================================
+==========================================================================================================================================
+
+  step 8 >> 
+
+                  CREATE TABLE ORDERS (
+	          ORDER_ID VARCHAR2(10) CONSTRAINT ORDERS_PK PRIMARY KEY, 
+	          PRODUCT_ID VARCHAR2(10) CONSTRAINT ORD_FK_PID REFERENCES PRODUCTS(PRODUCT_ID), 
+	          CUSTOMER_ID VARCHAR2(10) CONSTRAINT ORD_FK_CMTR_ID REFERENCES CUSTOMERS(CUSTOMER_ID), 
+	          STAFF_ID VARCHAR2(10) CONSTRAINT ORD_FK_STF_ID REFERENCES STAFF(STAFF_ID),
+	          REVIEW VARCHAR2(200),
+	          STATUS VARCHAR2(50),
+	          COMPANY_ID VARCHAR2(20) CONSTRAINT ORD_FK_CMP_ID REFERENCES COMPANIES(COMPANY_ID),
+	          OTP NUMBER(10)
+                   );
+
+
+====================================================================================================================================================================================================================================================================================
+
+
+
+
+
